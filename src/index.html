@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    const createADownload = href => {
+      const a = document.createElement('a')
+      a.download = 'dnf'
+      // a.target = '_blank'
+      a.rel = 'noopener noreferrer'
+      a.href = href
+      return a
+    }
+
+    let ifr
+    const createIframe = () => {
+      if (ifr) return ifr
+      ifr = document.createElement('iframe')
+
+      ifr.style.cssText = 'border: none; height: 0; width: 0; overflow: hidden;'
+
+      document.body.appendChild(ifr)
+
+      return ifr
+    }
+
+    const url = 'tencent://'
+
+    iframeDirect = () => {
+      const ifr = createIframe()
+      ifr.src = url
+    }
+
+    console.log('123')
+
+    window.onload = () => {
+      console.log('load')
+      // iframeDirect()
+      // window.location.href = url
+      // const a = createADownload(url)
+      // a.click()
+      // a.remove()
+
+      // console.log('iframeDirect')
+      // iframeDirect()
+
+      setTimeout(() => {
+      //   console.log('a.click')
+
+        const a = createADownload(url)
+        a.click()
+        a.remove()
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
